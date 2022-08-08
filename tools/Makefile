@@ -128,7 +128,7 @@ sph2pipe_v2.5: sph2pipe_v2.5.tar.gz
 
 sph2pipe_v2.5.tar.gz:
 	wget -T 10 -t 3 http://www.openslr.org/resources/3/sph2pipe_v2.5.tar.gz --no-check-certificate || \
-	wget --no-check-certificate -T 20  -t 3https://sourceforge.net/projects/kaldi/files/sph2pipe_v2.5.tar.gz
+	wget --no-check-certificate -T 20  -t 3 https://sourceforge.net/projects/kaldi/files/sph2pipe_v2.5.tar.gz
 
 
 .PHONY: cub
