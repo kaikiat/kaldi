@@ -46,7 +46,7 @@ if [ ! -e pa_stable_v19_20111121.tgz ]; then
         exit 1;
     fi
 
-   wget -T 10 -t 3 http://www.portaudio.com/archives/pa_stable_v19_20111121.tgz
+   wget -T 10 -t 3 http://www.portaudio.com/archives/pa_stable_v19_20111121.tgz --no-check-certificate
 
    if [ ! -e pa_stable_v19_20111121.tgz ]; then
         echo "Download of pa_stable_v19_20111121.tgz - failed!"

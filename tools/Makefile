@@ -89,8 +89,8 @@ openfst-$(OPENFST_VERSION): openfst-$(OPENFST_VERSION).tar.gz
 	tar xozf openfst-$(OPENFST_VERSION).tar.gz
 
 openfst-$(OPENFST_VERSION).tar.gz:
-	wget -T 10 -t 1 http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-$(OPENFST_VERSION).tar.gz || \
-	wget -T 10 -t 3 http://www.openslr.org/resources/2/openfst-$(OPENFST_VERSION).tar.gz
+	wget -T 10 -t 1 http://www.openfst.org/twiki/pub/FST/FstDownload/openfst-$(OPENFST_VERSION).tar.gz --no-check-certificate || \
+	wget -T 10 -t 3 http://www.openslr.org/resources/2/openfst-$(OPENFST_VERSION).tar.gz --no-check-certificate
 
 sclite: sclite_compiled
 
@@ -112,8 +112,8 @@ sctk: sctk-2.4.10-20151007-1312Z.tar.bz2
 	rm -rf sctk && ln -s sctk-2.4.10 sctk
 
 sctk-2.4.10-20151007-1312Z.tar.bz2:
-	wget -T 10 -t 3 ftp://jaguar.ncsl.nist.gov/pub/sctk-2.4.10-20151007-1312Z.tar.bz2|| \
-	wget --no-check-certificate -T 10 http://www.openslr.org/resources/4/sctk-2.4.10-20151007-1312Z.tar.bz2
+	wget -T 10 -t 3 ftp://jaguar.ncsl.nist.gov/pub/sctk-2.4.10-20151007-1312Z.tar.bz2 --no-check-certificate|| \
+	wget --no-check-certificate -T 10 http://www.openslr.org/resources/4/sctk-2.4.10-20151007-1312Z.tar.bz2 --no-check-certificate
 
 sph2pipe: sph2pipe_compiled
 
@@ -127,13 +127,13 @@ sph2pipe_v2.5: sph2pipe_v2.5.tar.gz
 	tar --no-same-owner -xzf sph2pipe_v2.5.tar.gz
 
 sph2pipe_v2.5.tar.gz:
-	wget -T 10 -t 3 http://www.openslr.org/resources/3/sph2pipe_v2.5.tar.gz || \
-	wget --no-check-certificate -T 10  https://sourceforge.net/projects/kaldi/files/sph2pipe_v2.5.tar.gz
+	wget -T 10 -t 3 http://www.openslr.org/resources/3/sph2pipe_v2.5.tar.gz --no-check-certificate || \
+	wget --no-check-certificate -T 10  https://sourceforge.net/projects/kaldi/files/sph2pipe_v2.5.tar.gz --no-check-certificate
 
 
 .PHONY: cub
 cub:
-	wget -T 10 -t 3 -O cub-$(CUB_VERSION).zip https://github.com/NVlabs/cub/archive/$(CUB_VERSION).zip
+	wget -T 10 -t 3 -O cub-$(CUB_VERSION).zip https://github.com/NVlabs/cub/archive/$(CUB_VERSION).zip --no-check-certificate
 	unzip -oq cub-$(CUB_VERSION).zip
 	rm -f cub
 	ln -s cub-$(CUB_VERSION) cub
@@ -143,7 +143,7 @@ cub:
 openblas:
 	@-rm -rf OpenBLAS xianyi-OpenBLAS-*
 	wget -t3 -nv -O- $$( \
-            wget -qO- 'https://api.github.com/repos/xianyi/OpenBLAS/releases/tags/v$(OPENBLAS_VERSION)' | \
+            wget -qO- 'https://api.github.com/repos/xianyi/OpenBLAS/releases/tags/v$(OPENBLAS_VERSION)' --no-check-certificate | \
             python -c 'import sys,json;print(json.load(sys.stdin)["tarball_url"])') | \
 	  tar xzf -
 	mv xianyi-OpenBLAS-* OpenBLAS
